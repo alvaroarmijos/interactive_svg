@@ -41,6 +41,7 @@ This project is licensed under the MIT License. Feel free to use and modify the 
 ## Acknowledgments
 - The SVG map used in this project is sourced from [Vemaps](https://vemaps.com/)
 - Special thanks to the Flutter community for their support and valuable resources.
+
 Enjoy exploring the world with our interactive SVG map! If you have any questions or need assistance, please don't hesitate to reach out.
 
 Happy coding! 🚀✨
