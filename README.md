@@ -16,18 +16,15 @@ This Flutter application utilizes an interactive SVG map to provide a seamless a
 
 ```
 git clone https://github.com/alvaroarmijos/interactive_svg.git
-
 ```
 2. Navigate to the project directory:
 
 ```
 cd interactive_svg
-
 ```
 3. Run the application:
 ```
 flutter run
-
 ```
 ## Usage
 
