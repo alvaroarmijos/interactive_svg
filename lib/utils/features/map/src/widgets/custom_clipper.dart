@@ -4,15 +4,9 @@ import 'package:path_drawing/path_drawing.dart';
 class Clipper extends CustomClipper<Path> {
   Clipper({
     required this.svgPath,
-    this.offset = Offset.zero,
-    this.x = 0.45,
-    this.y = 0.45,
   });
 
   String svgPath;
-  Offset offset;
-  double x;
-  double y;
 
   @override
   Path getClip(Size size) {
