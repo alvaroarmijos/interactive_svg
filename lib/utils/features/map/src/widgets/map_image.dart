@@ -23,8 +23,8 @@ class MapImage extends StatelessWidget {
           child: InteractiveViewer(
             maxScale: 5,
             minScale: 0.1,
-            child: Center(
-              child: Stack(alignment: Alignment.topCenter, children: [
+            child: Stack(
+              children: [
                 for (var country in countries)
                   _getClippedImage(
                     clipper: Clipper(
@@ -39,7 +39,7 @@ class MapImage extends StatelessWidget {
                     country: country,
                     onCountrySelected: onCountrySelected,
                   ),
-              ]),
+              ],
             ),
           ),
         ),
