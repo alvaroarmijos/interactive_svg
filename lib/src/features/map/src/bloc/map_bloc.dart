@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:interactive_svg/src/core/commons/res.dart';
 import 'package:interactive_svg/src/data/svg_reader/domain.dart';
 import 'package:interactive_svg/utils/utils.dart';
 
@@ -17,7 +18,9 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     GetSvgEvent event,
     Emitter emit,
   ) async {
-    await Utils.loadSvgImage(svgImage: 'assets/map.svg').then(
+    await Utils.loadSvgImage(
+      svgImage: AppDrawables.getMapSvg(),
+    ).then(
       (data) => emit(
         Loaded(
           countries: data,

@@ -17,7 +17,14 @@ class Utils {
       String name = element.getAttribute('name').toString();
       String color = element.getAttribute('color')?.toString() ?? 'D7D3D2';
 
-      maps.add(Country(id: partId, path: partPath, color: color, name: name));
+      maps.add(
+        Country(
+          id: partId,
+          path: partPath,
+          color: color,
+          name: name,
+        ),
+      );
     }
 
     return maps;
