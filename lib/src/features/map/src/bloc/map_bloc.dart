@@ -4,11 +4,11 @@ import 'package:bloc/bloc.dart';
 import 'package:interactive_svg/src/data/svg_reader/domain.dart';
 import 'package:interactive_svg/utils/utils.dart';
 
-part 'map_page_event.dart';
-part 'map_page_state.dart';
+part 'map_event.dart';
+part 'map_state.dart';
 
-class MapPageBloc extends Bloc<MapPageEvent, MapPageState> {
-  MapPageBloc() : super(Loading()) {
+class MapBloc extends Bloc<MapEvent, MapState> {
+  MapBloc() : super(const Loading()) {
     on<GetSvgEvent>(_onGetSvgEvent);
     on<CountrySelectedEvent>(_onCountrySelectedEvent);
   }
@@ -17,19 +17,25 @@ class MapPageBloc extends Bloc<MapPageEvent, MapPageState> {
     GetSvgEvent event,
     Emitter emit,
   ) async {
-    await Utils.loadSvgImage(svgImage: 'assets/map.svg')
-        .then((data) => emit(Loaded(data, null)));
+    await Utils.loadSvgImage(svgImage: 'assets/map.svg').then(
+      (data) => emit(
+        Loaded(
+          countries: data,
+          currentCountry: null,
+        ),
+      ),
+    );
   }
 
   FutureOr<void> _onCountrySelectedEvent(
     CountrySelectedEvent event,
     Emitter emit,
   ) async {
-    emit(Loaded(state.countries!, event.country));
-  }
-
-  void init() {
-    add(GetSvgEvent());
+    emit(
+      (state as Loaded).copyWith(
+        currentCountry: event.country,
+      ),
+    );
   }
 
   void onCountrySelected(Country country) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interactive_svg/src/core/commons/widgets.dart';
-import 'package:interactive_svg/src/features/map/src/bloc/map_page_bloc.dart';
+import 'package:interactive_svg/src/features/map/src/bloc/map_bloc.dart';
 import 'package:interactive_svg/src/features/map/src/widgets/map_image.dart';
 
 class MapPage extends StatelessWidget {
@@ -9,32 +9,31 @@ class MapPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<MapPageBloc>()..init();
+    final bloc = context.read<MapBloc>();
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Map Page'),
       ),
-      body: BlocBuilder<MapPageBloc, MapPageState>(builder: (context, state) {
-        if (state is Empty) {
-          return const InformationMessage(
-            message: 'There aren\'t information about pokemon.',
-          );
-        } else if (state is Loading) {
-          return const LoadingWidget();
-        } else if (state is Loaded) {
-          return MapImage(
-            countries: state.countries,
-            currentCountry: state.currentCountry,
-            onCountrySelected: (country) => bloc.onCountrySelected(country),
-          );
-        } else if (state is Error) {
-          return InformationMessage(
-            message: state.message,
-          );
-        }
-
-        return Container();
+      body: BlocBuilder<MapBloc, MapState>(builder: (context, state) {
+        return switch (state) {
+          Empty() => const InformationMessage(
+              message: 'There aren\'t information about pokemon.',
+            ),
+          Loading() => const LoadingWidget(),
+          Error() => InformationMessage(
+              message: state.message,
+            ),
+          Loaded(
+            countries: final countries,
+            currentCountry: final currentCountry,
+          ) =>
+            MapImage(
+              countries: countries,
+              currentCountry: currentCountry,
+              onCountrySelected: (country) => bloc.onCountrySelected(country),
+            ),
+        };
       }),
     );
   }
