@@ -12,6 +12,8 @@ This Flutter application utilizes an interactive SVG map to provide a seamless a
 
 ## Installation
 
+**This app requires Flutter 3.16.**
+
 1. Clone the repository:
 
 ```

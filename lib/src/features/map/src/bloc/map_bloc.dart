@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interactive_svg/src/core/commons/res.dart';
 import 'package:interactive_svg/src/data/svg_reader/domain.dart';
 import 'package:interactive_svg/utils/utils.dart';
