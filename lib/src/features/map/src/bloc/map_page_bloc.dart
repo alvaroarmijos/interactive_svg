@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:interactive_svg/utils/data/svg_reader/domain.dart';
-
-import '../../../../utils.dart';
+import 'package:interactive_svg/src/data/svg_reader/domain.dart';
+import 'package:interactive_svg/utils/utils.dart';
 
 part 'map_page_event.dart';
 part 'map_page_state.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:interactive_svg/utils/data/svg_reader/domain.dart';
+import 'package:interactive_svg/src/data/svg_reader/domain.dart';
 import 'package:xml/xml.dart';
 
 class Utils {

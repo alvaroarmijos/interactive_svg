@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interactive_svg/utils/core/commons/widgets.dart';
-import 'package:interactive_svg/utils/features/map/bloc.dart';
-import 'package:interactive_svg/utils/features/map/widgets.dart';
+import 'package:interactive_svg/src/core/commons/widgets.dart';
+import 'package:interactive_svg/src/features/map/src/bloc/map_page_bloc.dart';
+import 'package:interactive_svg/src/features/map/src/widgets/map_image.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
